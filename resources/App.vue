@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     WORK HERE
+    <PropertyTableView />
   </div>
 </template>
 
-<script>
+<!-- <script>
 import { users, propertyTypes, properties } from '@/mocks/api';
 
 export default {
@@ -14,5 +15,15 @@ export default {
     propertyTypes,
     properties,
   }),
+};
+</script> -->
+<script>
+import PropertyTableView from '@/views/PropertyTableView.vue';
+
+export default {
+  name: 'App',
+  components: {
+    PropertyTableView,
+  },
 };
 </script>
