@@ -1,13 +1,22 @@
 <template>
   <div>
     <h1>List of properties</h1>
-    <PropertyList :users="users" :propertyTypes="propertyTypes" :properties="properties" />
+    <PropertyFilter
+      :users="users"
+      :propertyTypes="propertyTypes"
+      @filter-changed="handleFilterChange"
+    />
+    <PropertyList
+    :users="users"
+    :propertyTypes="propertyTypes"
+    :properties="properties"/>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 
+import PropertyFilter from '../components/PropertyFilter.vue';
 import PropertyList from '../components/PropertyList.vue';
 import { getUsers, getPropertyTypes, getProperties } from '../services/propertyService';
 

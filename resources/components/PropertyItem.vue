@@ -4,7 +4,7 @@
     <td>{{ propertyTypeName }}</td>
     <td>{{ userName }}</td>
     <td>{{ getStatus(property) }}</td>
-    <td>{{ getRentalDuration(rentedFrom, rentedTo) }}</td>
+    <td>{{ getRentalDuration(property) }}</td>
   </tr>
 </template>
 <script>

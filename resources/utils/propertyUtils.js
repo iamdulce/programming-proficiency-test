@@ -10,22 +10,23 @@ export function getStatus(property) {
 }
 
 // To obtain duration of the rental
-export function getRentalDuration(rentedFrom, rentedTo) {
-  if (!rentedFrom) return 0; // Has't been rented yet
+export function getRentalDuration(property) {
+  if (!property.rentedFrom) return 0; // Has't been rented yet
 
   const now = new Date();
-  const startDate = new Date(rentedFrom);
-  const endDate = rentedTo ? new Date(rentedTo) : now; // Still rented
+  const startDate = new Date(property.rentedFrom);
+  const endDate = property.rentedTo ? new Date(property.rentedTo) : now; // Still rented
 
   const yearDiff = endDate.getFullYear() - startDate.getFullYear();
   const monthDiff = endDate.getMonth() - startDate.getMonth();
-  const dayDiff = endDate.getDate() - startDate.getDate();
 
-  let months = yearDiff * 12 + monthDiff;
+  const months = yearDiff * 12 + monthDiff;
 
-  if (dayDiff < 0) {
-    months -= 1;
-  }
+  console.log('Start:', startDate);
+  console.log('End:', endDate);
+  console.log('Year diff:', yearDiff);
+  console.log('Month diff:', monthDiff);
+  console.log('Months:', months);
 
   return months > 0 ? months : 0;
 }
