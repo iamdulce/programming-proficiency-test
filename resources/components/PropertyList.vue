@@ -5,6 +5,8 @@
         <th>Name</th>
         <th>Type</th>
         <th>Owner</th>
+        <th>Status</th>
+        <th>Rental Duration</th>
       </tr>
     </thead>
     <tbody>

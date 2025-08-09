@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Lista de propiedades</h1>
+    <h1>List of properties</h1>
     <PropertyList :users="users" :propertyTypes="propertyTypes" :properties="properties" />
   </div>
 </template>

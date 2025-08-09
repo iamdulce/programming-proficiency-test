@@ -3,9 +3,13 @@
     <td>{{ property.name }}</td>
     <td>{{ propertyTypeName }}</td>
     <td>{{ userName }}</td>
+    <td>{{ getStatus(property) }}</td>
+    <td>{{ getRentalDuration(rentedFrom, rentedTo) }}</td>
   </tr>
 </template>
 <script>
+import { getStatus, getRentalDuration } from '../utils/propertyUtils';
+
 export default {
   name: 'PropertyItem',
   props: {
@@ -31,6 +35,10 @@ export default {
       const type = this.propertyTypes.find((t) => t.id === this.property.typeId);
       return type ? type.name : 'Unknown';
     },
+  },
+  methods: {
+    getStatus,
+    getRentalDuration,
   },
 };
 </script>
