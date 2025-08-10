@@ -1,10 +1,12 @@
 <template>
   <div class="main">
-    <h1>List of properties</h1>
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">Homming HPPT</h1>
+
     <PropertyFilter
       :users="users"
       :propertyTypes="propertyTypes"
       @filter-changed="handleFilterChange"
+      class="mb-6"
     />
     <PropertyList
     :users="users"

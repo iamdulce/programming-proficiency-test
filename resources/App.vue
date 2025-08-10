@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container mx-auto px-4 py-8">
     <PropertyTableView />
   </div>
 </template>

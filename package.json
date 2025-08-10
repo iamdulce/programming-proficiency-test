@@ -9,7 +9,9 @@
     "lint": "node_modules/.bin/vue-cli-service lint resources"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.21",
     "core-js": "^3.6.5",
+    "tailwindcss": "^2.2.19",
     "vue": "^2.6.11"
   },
   "devDependencies": {
