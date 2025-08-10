@@ -1,7 +1,7 @@
 import { onlyDate } from './dateUtils';
 import { getStatus } from './propertyUtils';
 
-export default function customFilterProps(properties, filters) {
+export function customFilterProps(properties, filters) {
   return properties.filter((prop) => {
     // By type
     if (filters.type && prop.typeId !== Number(filters.type)) {
@@ -36,4 +36,18 @@ export default function customFilterProps(properties, filters) {
 
     return true;
   });
+}
+
+export function loadFiltersFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const filters = {};
+
+  if (params.get('user')) {
+    filters.user = Number(params.get('user'));
+  }
+  if (params.get('type')) {
+    filters.type = Number(params.get('type'));
+  }
+
+  return filters;
 }

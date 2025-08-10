@@ -21,7 +21,7 @@ import { ref, onMounted, computed } from 'vue';
 import PropertyList from '../components/PropertyList.vue';
 import PropertyFilter from '../components/PropertyFilter.vue';
 import { getUsers, getPropertyTypes, getProperties } from '../services/propertyService';
-import customFilterProps from '../utils/filtersUtils';
+import { customFilterProps, loadFiltersFromURL } from '../utils/filtersUtils';
 
 const users = ref([]);
 const propertyTypes = ref([]);
@@ -42,5 +42,7 @@ onMounted(() => {
   users.value = getUsers();
   propertyTypes.value = getPropertyTypes();
   properties.value = getProperties();
+
+  filters.value = { ...filters.value, ...loadFiltersFromURL(propertyTypes.value) };
 });
 </script>
