@@ -10,7 +10,9 @@
       {{ userName }}
     </td>
     <td class="border border-gray-300 px-4 py-2">
-      {{ getStatus(property) }}
+      <span :class="statusClasses(getStatus(property))">
+        {{ getStatus(property) }}
+      </span>
     </td>
     <td class="border border-gray-300 px-4 py-2">
       {{ getRentalDuration(property) }}</td>
@@ -29,7 +31,12 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 text-sm">
       <div><span class="font-semibold">Type: </span>{{ propertyTypeName }}</div>
       <div><span class="font-semibold">Owner: </span>{{ userName }}</div>
-      <div><span class="font-semibold">Status: </span>{{ getStatus(property) }}</div>
+      <div>
+        <span class="font-semibold">Status: </span>
+        <span :class="statusClasses(getStatus(property))">
+          {{ getStatus(property) }}
+        </span>
+      </div>
       <div>
         <span class="font-semibold">Rental Duration:</span>
         {{ getRentalDuration(property) }}
@@ -79,6 +86,16 @@ export default {
   methods: {
     getStatus,
     getRentalDuration,
+
+    statusClasses(statusText) {
+      if (statusText === 'Currently rented') {
+        return 'bg-green-100 text-green-800 font-semibold px-2 py-1 rounded';
+      }
+      if (statusText === 'Not rented') {
+        return 'bg-gray-200 text-gray-700 font-bold px-2 py-1 rounded';
+      }
+      return '';
+    },
   },
 };
 </script>

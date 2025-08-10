@@ -45,7 +45,7 @@ export function getFormattedRentalDates(property) {
     if (property.rentedTo) {
       toText = `To: ${formatDate(property.rentedTo)}`;
     } else {
-      toText = 'Ongoing';
+      toText = 'To: Ongoing';
     }
   } else {
     fromText = 'Never rented';
