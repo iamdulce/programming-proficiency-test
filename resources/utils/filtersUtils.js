@@ -1,4 +1,5 @@
 import { onlyDate } from './dateUtils';
+import { getStatus } from './propertyUtils';
 
 export default function customFilterProps(properties, filters) {
   return properties.filter((prop) => {
@@ -12,6 +13,7 @@ export default function customFilterProps(properties, filters) {
       return false;
     }
 
+    // By rentedFrom
     if (filters.rentedFrom) {
       const propDate = onlyDate(prop.rentedFrom);
       const filterDate = onlyDate(filters.rentedFrom);
@@ -19,12 +21,17 @@ export default function customFilterProps(properties, filters) {
       if (propDate < filterDate) return false;
     }
 
-    // By rented to date
+    // By rentedTo date
     if (filters.rentedTo) {
       const propDate = onlyDate(prop.rentedTo);
       const filterDate = onlyDate(filters.rentedTo);
       if (!propDate) return false;
       if (propDate > filterDate) return false;
+    }
+
+    // By status
+    if (filters.status && getStatus(prop) !== filters.status) {
+      return false;
     }
 
     return true;

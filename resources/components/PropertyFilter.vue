@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Filter by</h3>
+    <h2>Filter by</h2>
 
     <div>
       <div>
@@ -30,6 +30,39 @@
         <input type="date" v-model="rentedTo" @change="emitFilter"/>
       </div>
     </div>
+
+    <div>
+      <h2>Show:</h2>
+      <div>
+        <label>
+          <input
+            type="radio"
+            value=""
+            v-model="selectedStatus"
+            @change="emitFilter"
+          />
+          All
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Currently rented"
+            v-model="selectedStatus"
+            @change="emitFilter"
+          />
+          Currently rented
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="Not rented"
+            v-model="selectedStatus"
+            @change="emitFilter"
+          />
+          Not rented
+        </label>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,6 +79,7 @@ export default {
       selectedUser: '',
       rentedFrom: '',
       rentedTo: '',
+      selectedStatus: '',
     };
   },
   methods: {
@@ -55,6 +89,7 @@ export default {
         user: this.selectedUser,
         rentedFrom: this.rentedFrom,
         rentedTo: this.rentedTo,
+        status: this.selectedStatus,
       });
     },
   },
