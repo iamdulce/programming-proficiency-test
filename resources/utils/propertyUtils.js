@@ -1,4 +1,4 @@
-import { onlyDate } from './dateUtils';
+import { onlyDate, formatDate } from './dateUtils';
 
 // To obtain current status of the property
 export function getStatus(property) {
@@ -33,4 +33,23 @@ export function getRentalDuration(property) {
   console.log('Months:', months);
 
   return months > 0 ? months : 0;
+}
+
+// To format rentedFrom and rentedTo for dates column
+export function getFormattedRentalDates(property) {
+  let fromText;
+  let toText = '';
+
+  if (property.rentedFrom) {
+    fromText = `From: ${formatDate(property.rentedFrom)}`;
+    if (property.rentedTo) {
+      toText = `To: ${formatDate(property.rentedTo)}`;
+    } else {
+      toText = 'Ongoing';
+    }
+  } else {
+    fromText = 'Never rented';
+  }
+
+  return { from: fromText, to: toText };
 }

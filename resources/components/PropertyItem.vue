@@ -6,14 +6,13 @@
     <td>{{ getStatus(property) }}</td>
     <td>{{ getRentalDuration(property) }}</td>
     <td>
-      <span>From: {{ formatDate(property.rentedFrom) }}</span>
-      <span>To: {{ formatDate(property.rentedTo) }}</span>
+      <span>{{ rentalDates.from }} </span>
+      <span>{{ rentalDates.to }} </span>
     </td>
   </tr>
 </template>
 <script>
-import { getStatus, getRentalDuration } from '../utils/propertyUtils';
-import { formatDate } from '../utils/dateUtils';
+import { getStatus, getRentalDuration, getFormattedRentalDates } from '../utils/propertyUtils';
 
 export default {
   name: 'PropertyItem',
@@ -40,17 +39,13 @@ export default {
       const type = this.propertyTypes.find((t) => t.id === this.property.typeId);
       return type ? type.name : 'Unknown';
     },
-    formattedRentedFrom() {
-      return formatDate(this.property.rentedFrom);
-    },
-    formattedRentedTo() {
-      return formatDate(this.property.rentedTo);
+    rentalDates() {
+      return getFormattedRentalDates(this.property);
     },
   },
   methods: {
     getStatus,
     getRentalDuration,
-    formatDate,
   },
 };
 </script>
