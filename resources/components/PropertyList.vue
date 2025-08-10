@@ -7,6 +7,7 @@
         <th>Owner</th>
         <th>Status</th>
         <th>Rental Duration</th>
+        <th>Dates</th>
       </tr>
     </thead>
     <tbody>

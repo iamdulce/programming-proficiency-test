@@ -19,7 +19,7 @@ import { ref, onMounted, computed } from 'vue';
 import PropertyList from '../components/PropertyList.vue';
 import PropertyFilter from '../components/PropertyFilter.vue';
 import { getUsers, getPropertyTypes, getProperties } from '../services/propertyService';
-import customFilterProps from '../utils/filters';
+import customFilterProps from '../utils/filtersUtils';
 
 const users = ref([]);
 const propertyTypes = ref([]);
