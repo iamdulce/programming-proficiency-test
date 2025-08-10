@@ -1,9 +1,13 @@
+import { onlyDate } from './dateUtils';
+
 // To obtain current status of the property
 export function getStatus(property) {
   if (!property.rentedFrom) return 'Not rented';
 
-  const now = new Date();
-  if (!property.rentedTo || new Date(property.rentedTo) > now) {
+  const now = onlyDate(new Date());
+  const rentedTo = onlyDate(property.rentedTo);
+
+  if (!rentedTo || rentedTo > now) {
     return 'Currently rented';
   }
   return 'Not rented';
@@ -13,9 +17,9 @@ export function getStatus(property) {
 export function getRentalDuration(property) {
   if (!property.rentedFrom) return 0; // Has't been rented yet
 
-  const now = new Date();
-  const startDate = new Date(property.rentedFrom);
-  const endDate = property.rentedTo ? new Date(property.rentedTo) : now; // Still rented
+  const now = onlyDate(new Date());
+  const startDate = onlyDate(property.rentedFrom);
+  const endDate = onlyDate(property.rentedTo) || now; // Still rented
 
   const yearDiff = endDate.getFullYear() - startDate.getFullYear();
   const monthDiff = endDate.getMonth() - startDate.getMonth();

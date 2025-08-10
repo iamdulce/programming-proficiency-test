@@ -7,13 +7,13 @@
     <td>{{ getRentalDuration(property) }}</td>
     <td>
       <span>From: {{ formatDate(property.rentedFrom) }}</span>
-      <span>To: {{ formatDate(property.rentedFrom) }}</span>
+      <span>To: {{ formatDate(property.rentedTo) }}</span>
     </td>
   </tr>
 </template>
 <script>
 import { getStatus, getRentalDuration } from '../utils/propertyUtils';
-import formatDate from '../utils/dateUtils';
+import { formatDate } from '../utils/dateUtils';
 
 export default {
   name: 'PropertyItem',
