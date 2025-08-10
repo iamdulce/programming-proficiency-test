@@ -15,7 +15,7 @@
       </span>
     </td>
     <td class="border border-gray-300 px-4 py-2">
-      {{ getRentalDuration(property) }}</td>
+      {{ getRentalDuration(property) }} months</td>
     <td class="border-b border-gray-300 px-4 py-2 flex flex-col">
       <span>{{ rentalDates.from }} </span>
       <span>{{ rentalDates.to }} </span>
@@ -39,7 +39,7 @@
       </div>
       <div>
         <span class="font-semibold">Rental Duration:</span>
-        {{ getRentalDuration(property) }}
+        {{ getRentalDuration(property) }} months
       </div>
       <div><span class="font-semibold">{{ rentalDates.from }}</span></div>
       <div><span class="font-semibold">{{ rentalDates.to }}</span></div>

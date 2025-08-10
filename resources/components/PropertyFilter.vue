@@ -6,7 +6,7 @@
         <div class="filter-group">
           <label
             for="type-select"
-            class="block mb-1 font-semibold"
+            class="block mb-1 font-medium"
             >
             Property Type:
           </label>
@@ -25,7 +25,7 @@
         <div class="filter-group">
           <label
             for="user-select"
-            class="block mb-1 font-semibold"
+            class="block mb-1 font-medium"
             >
             Owner:
           </label>
@@ -42,7 +42,7 @@
           </select>
         </div>
         <div class="filter-group">
-          <label class="block mb-1 font-semibold">Rented From:</label>
+          <label class="block mb-1 font-medium">Rented From:</label>
           <input
             type="date"
             v-model="rentedFrom"
@@ -51,7 +51,7 @@
             />
         </div>
         <div class="filter-group">
-          <label class="block mb-1 font-semibold">Rented To:</label>
+          <label class="block mb-1 font-medium">Rented To:</label>
           <input
           type="date"
           v-model="rentedTo"
